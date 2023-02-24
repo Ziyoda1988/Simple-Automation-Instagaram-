@@ -1,0 +1,29 @@
+import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class ClassTask {
+    @Test
+    public void Warmup() throws InterruptedException {
+        //Navigate the Instagram.com
+       
+       WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.instagram.com/");
+        Thread.sleep(3000);
+
+        //Enter wrong credentials from username and password (minnie.mouse, minnie)
+       
+       driver.findElement(By.name("username")).sendKeys("minnie.mouse");
+        driver.findElement(By.name("password")).sendKeys("minnie", Keys.ENTER);
+        Thread.sleep(3000);
+
+        //Verify that the error message "Sorry, your password was incorrect. Please double-check your password." is on the page
+       
+       Assert.assertEquals(driver.findElement(By.id("slfErrorAlert")).getText(),"Sorry, your password was incorrect. Please double-check your password.");
+        driver.quit();
+    }}
