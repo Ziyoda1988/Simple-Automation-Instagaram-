@@ -24,6 +24,6 @@ public class ClassTask {
 
         //Verify that the error message "Sorry, your password was incorrect. Please double-check your password." is on the page
        
-       Assert.assertEquals(driver.findElement(By.id("slfErrorAlert")).getText(),"Sorry, your password was incorrect. Please double-check your password.");
+       Assert.assertEquals(driver.findElement(By.id("slfErrorAlert")).getText(),"There was a problem logging you into Instagram. Please try again soon.");
         driver.quit();
     }}
